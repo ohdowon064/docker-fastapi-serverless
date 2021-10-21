@@ -1,0 +1,13 @@
+.
+├── Dockerfile
+├── app
+│   ├── __init__.py
+│   └── main.py
+├── requirements.txt
+├── tree.txt
+└── venv
+    ├── Lib
+    ├── Scripts
+    └── pyvenv.cfg
+
+4 directories, 6 files
