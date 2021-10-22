@@ -1,4 +1,4 @@
-FROM python:3.9-alpine
+FROM python:3.10-alpine
 
 # WORKDIR: RUN, CMD, ENTRYPOINT의 명령이 실행될 디렉터리를 설정한다.
 # WORKDIR <경로>
@@ -18,7 +18,9 @@ RUN pip install -r dev.txt
 
 # ENV: 환경 변수를 설정한다.
 # ENV <환경 변수> <값>
-
+# docker run -e <환경 변수>=<값>으로 사용가능
 ENV PYTHONPATH "${PYTHONPATH}:/usr/src"
 
+# 셸 없이 바로 실행하기
+# CMD ["<실행 파일>", "<매개 변수1>", "<매개 변수2>", ...]
 CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]

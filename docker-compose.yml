@@ -8,15 +8,18 @@ services:
     image: lambda-fastapi-prod
     container_name: lambda-fastapi-prod
     ports:
-      - 9000:8080
+      - "9000:8080"
 
   lambda-fastapi-dev:
     build:
-      context: .
-      dockerfile: ./compose/dev/Dockerfile
-    image: lambda-fastapi-dev:latest
-    container_name: lambda-fastapi-dev
+      context: . # context는 docker build 명령을 실행할 디렉토리 경로
+      dockerfile: ./compose/dev/Dockerfile # 도커파일 지정
+    image: lambda-fastapi-dev:latest # 태그 또는 image ID를 지정한다.
+    container_name: lambda-fastapi-dev # 컨테이너 이름
     volumes:
+      # volume: 컨테이너를 휘발되지 않도록 저장하는 저장공간
+      # volumes는 패스와 볼륨을 마운트한다.
+      # <호스트>:<컨테이너>
       - ./src:/usr/src
-    ports:
-      - 8000:8000
+    ports: # 포트지정 <호스트 포트>:<컨테이너 포트> 또는 <컨테이너 포트>만 지정
+      - "8000:8000"

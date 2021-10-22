@@ -8,7 +8,7 @@ from app.api.api_v1.api import router as v1_router
 
 def create_app():
     app = FastAPI(
-        title="My Awesome FastAPI app in Docker",
+        title="My Awesome FastAPI App in Docker",
         description="This is super fancy, with auto docs and everything!",
         version="0.1.0"
     )
