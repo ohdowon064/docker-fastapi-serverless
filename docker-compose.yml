@@ -5,10 +5,10 @@ services:
     build:
       context: .
       dockerfile: ./compose/prod/Dockerfile
-    image: lambda-fastapi-prod
+    image: 820426543822.dkr.ecr.ap-northeast-2.amazonaws.com/lambda-fastapi:latest
     container_name: lambda-fastapi-prod
     ports:
-      - "9000:8080"
+      - 9000:8080
 
   lambda-fastapi-dev:
     build:
@@ -19,7 +19,7 @@ services:
     volumes:
       # volume: 컨테이너를 휘발되지 않도록 저장하는 저장공간
       # volumes는 패스와 볼륨을 마운트한다.
-      # <호스트>:<컨테이너>
-      - ./src:/usr/src
+      # <호스트>:<컨테이너> -> 현재 app 폴더를 컨테이너의 /usr/src/app 폴더에 마운트시킨다.
+      - ./app:/usr/src/app
     ports: # 포트지정 <호스트 포트>:<컨테이너 포트> 또는 <컨테이너 포트>만 지정
-      - "8000:8000"
+      - 8000:8000

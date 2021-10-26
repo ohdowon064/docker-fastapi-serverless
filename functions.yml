@@ -1,0 +1,12 @@
+functions:
+  myFastAPIFunction:
+    image: <AWS ECR repository uri>
+    events:
+      - http:
+          path: /
+          method: any
+          cors: true
+      - http:
+          path: /{proxy+}
+          method: any
+          cors: true

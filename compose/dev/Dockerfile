@@ -2,8 +2,8 @@ FROM python:3.10-alpine
 
 # WORKDIR: RUN, CMD, ENTRYPOINT의 명령이 실행될 디렉터리를 설정한다.
 # WORKDIR <경로>
-# 다음 명령들은 /usr/src/app 디렉토리에서 실행된다.
-WORKDIR /usr/src/app
+# 다음 명령들은 /usr/src 디렉토리에서 실행된다.
+WORKDIR /usr/src
 
 # COPY: 파일을 이미지에 추가한다.
 # COPY <복사할 파일 경로> <이미지에서 파일이 위치할 경로>

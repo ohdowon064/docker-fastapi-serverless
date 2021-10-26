@@ -1,3 +1,5 @@
+from os import getenv
+
 import uvicorn
 from fastapi import FastAPI
 from mangum import Mangum
@@ -7,8 +9,10 @@ from app.api.api_v1.api import router as v1_router
 
 
 def create_app():
+    # root_path = f"/{getenv('stage', '')}"
     app = FastAPI(
-        title="My Awesome FastAPI App in Docker",
+        # root_path=root_path,
+        title="FastAPI + Docker + AWS Lambda",
         description="This is super fancy, with auto docs and everything!",
         version="0.1.0"
     )
